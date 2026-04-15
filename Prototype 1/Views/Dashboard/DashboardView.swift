@@ -235,7 +235,7 @@ struct MonthlyCheckInBanner: View {
                 Image(systemName: "bolt.fill").font(.system(size: 13)).foregroundColor(Color(hex: "#BA7517"))
                 VStack(alignment: .leading, spacing: 3) {
                     Text("\(currentMonth()) story ready").font(.system(size: 13, weight: .medium)).foregroundColor(Color(hex: "#633806"))
-                    Text("Se what you built this month").font(.system(size: 12)).foregroundColor(Color(hex: "#854F0B"))
+                    Text("See what you built this month").font(.system(size: 12)).foregroundColor(Color(hex: "#854F0B"))
                 }
                 Spacer()
                 Image(systemName: "chevron.right").font(.system(size: 12, weight: .medium)).foregroundColor(Color(hex: "#BA7517"))
