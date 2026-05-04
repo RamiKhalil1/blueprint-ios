@@ -57,14 +57,14 @@ final class ClaudeCheckInViewModel: ObservableObject {
 
     // MARK: - Computed
 
-    /// True when the user can send a new message.
+    // True when the user can send a new message.
     var canSend: Bool {
         !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             && !isLoading
             && !isAtLimit
     }
 
-    /// Limit to 6 user exchanges per session.
+    // Limit to 6 user exchanges per session.
     var isAtLimit: Bool {
         messages.filter { $0.role == .user }.count >= 6
     }

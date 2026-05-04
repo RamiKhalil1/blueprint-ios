@@ -55,28 +55,28 @@ enum BPFont {
 
     // MARK: Presets
     static let heroNumber  = display(40)
-    static let title       = body(22, weight: .medium)
+    static let title = body(22, weight: .medium)
     static let sectionHead = body(11, weight: .medium)
-    static let cardTitle   = body(15, weight: .medium)
-    static let cardBody    = body(14)
-    static let caption     = body(12)
-    static let micro       = body(11)
-    static let tag         = body(10, weight: .medium)
+    static let cardTitle = body(15, weight: .medium)
+    static let cardBody = body(14)
+    static let caption = body(12)
+    static let micro = body(11)
+    static let tag = body(10, weight: .medium)
 }
 
 enum BPSpacing {
-    static let screenH: CGFloat  = 24
+    static let screenH: CGFloat = 24
     static let sectionV: CGFloat = 20
-    static let cardPad: CGFloat  = 16
-    static let itemGap: CGFloat  = 12
-    static let tinyGap: CGFloat  = 6
+    static let cardPad: CGFloat = 16
+    static let itemGap: CGFloat = 12
+    static let tinyGap: CGFloat = 6
 }
 
 enum BPRadius {
-    static let card: CGFloat    = 14
+    static let card: CGFloat = 14
     static let button: CGFloat  = 12
-    static let pill: CGFloat    = 20
-    static let tag: CGFloat     = 8
+    static let pill: CGFloat = 20
+    static let tag: CGFloat = 8
 }
 
 // MARK: - Reusable view modifiers

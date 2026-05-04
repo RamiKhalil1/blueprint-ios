@@ -28,10 +28,10 @@ final class MonthlyDataService {
             record.areaRatings[areaName] = rating.rawValue
             let delta: Int
             switch rating {
-            case .yes:       delta = 2
-            case .partly:    delta = 1
+            case .yes: delta = 2
+            case .partly: delta = 1
             case .notReally: delta = 0
-            case .notRated:  delta = 0
+            case .notRated: delta = 0
             }
             if delta > 0 { record.canvasDeltas[areaName] = delta }
         }
@@ -41,10 +41,10 @@ final class MonthlyDataService {
             for area in canvas.lifeAreas {
                 if let rating = ratings[area.name] {
                     switch rating {
-                    case .yes:       area.statusEnum = .onTrack
-                    case .partly:    area.statusEnum = .onTrack
+                    case .yes: area.statusEnum = .onTrack
+                    case .partly: area.statusEnum = .onTrack
                     case .notReally: area.statusEnum = .drifting
-                    case .notRated:  break
+                    case .notRated: break
                     }
                     area.updatedAt = .now
                 }

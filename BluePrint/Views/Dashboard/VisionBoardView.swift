@@ -161,7 +161,6 @@ struct VisionBoardView: View {
     }
 
     // MARK: - Empty State
-
     private var emptyState: some View {
         VStack(spacing: 14) {
             Image(systemName: "photo.stack")
@@ -182,7 +181,6 @@ struct VisionBoardView: View {
 }
 
 // MARK: - Area Photo Section
-
 private struct AreaPhotoSection: View {
     let area:            LifeArea
     let photos:          [PhotoInteraction]
@@ -205,7 +203,7 @@ private struct AreaPhotoSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
 
-            // ── Area header ────────────────────────────────────────────────────
+            // Area header
             HStack(alignment: .center, spacing: 12) {
                 Text(area.emoji)
                     .font(.system(size: 30))
@@ -237,7 +235,7 @@ private struct AreaPhotoSection: View {
             .contentShape(Rectangle())
             .onTapGesture { onAreaTap() }
 
-            // ── Contribution bar ───────────────────────────────────────────────
+            // Contribution bar
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 3)
@@ -263,7 +261,7 @@ private struct AreaPhotoSection: View {
             .padding(.horizontal, 20)
             .onAppear { barAppeared = true }
 
-            // ── Photo strip ────────────────────────────────────────────────────
+            // Photo strip
             if photos.isEmpty {
                 HStack(spacing: 8) {
                     Image(systemName: "photo.badge.plus")
@@ -344,7 +342,7 @@ private struct PhotoDetailSheet: View {
     var body: some View {
         VStack(spacing: 0) {
 
-            // ── Photo ──────────────────────────────────────────────────────────
+            // Photo
             ZStack(alignment: .top) {
                 photoView(photo)
                     .frame(maxWidth: .infinity)
@@ -404,7 +402,7 @@ private struct PhotoDetailSheet: View {
                 .padding(.top, 60)
             }
 
-            // ── Visions Panel ──────────────────────────────────────────────────
+            // Visions Panel
             VisionsPanel(areas: areas)
         }
         .background(Color.black)

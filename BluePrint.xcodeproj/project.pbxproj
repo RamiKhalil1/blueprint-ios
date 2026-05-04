@@ -12,37 +12,37 @@
 			containerPortal = BABAAA722F8CBDAF006E359E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BABAAA792F8CBDAF006E359E;
-			remoteInfo = "BluePrint";
+			remoteInfo = BluePrint;
 		};
 		BABAAA922F8CBDB0006E359E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BABAAA722F8CBDAF006E359E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BABAAA792F8CBDAF006E359E;
-			remoteInfo = "BluePrint";
+			remoteInfo = BluePrint;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BABAAA7A2F8CBDAF006E359E /* BluePrint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BluePrint.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BABAAA872F8CBDB0006E359E /* BluePrintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BluePrintTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BABAAA912F8CBDB0006E359E /* BluePrintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BluePrintUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABAAA7A2F8CBDAF006E359E /* BluePrint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePrint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABAAA872F8CBDB0006E359E /* BluePrintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePrintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABAAA912F8CBDB0006E359E /* BluePrintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePrintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BABAAA7C2F8CBDAF006E359E /* BluePrint */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "BluePrint";
+			path = BluePrint;
 			sourceTree = "<group>";
 		};
 		BABAAA8A2F8CBDB0006E359E /* BluePrintTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "BluePrintTests";
+			path = BluePrintTests;
 			sourceTree = "<group>";
 		};
 		BABAAA942F8CBDB0006E359E /* BluePrintUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "BluePrintUITests";
+			path = BluePrintUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -110,10 +110,10 @@
 			fileSystemSynchronizedGroups = (
 				BABAAA7C2F8CBDAF006E359E /* BluePrint */,
 			);
-			name = "BluePrint";
+			name = BluePrint;
 			packageProductDependencies = (
 			);
-			productName = "BluePrint";
+			productName = BluePrint;
 			productReference = BABAAA7A2F8CBDAF006E359E /* BluePrint.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -133,10 +133,10 @@
 			fileSystemSynchronizedGroups = (
 				BABAAA8A2F8CBDB0006E359E /* BluePrintTests */,
 			);
-			name = "BluePrintTests";
+			name = BluePrintTests;
 			packageProductDependencies = (
 			);
-			productName = "BluePrintTests";
+			productName = BluePrintTests;
 			productReference = BABAAA872F8CBDB0006E359E /* BluePrintTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -156,10 +156,10 @@
 			fileSystemSynchronizedGroups = (
 				BABAAA942F8CBDB0006E359E /* BluePrintUITests */,
 			);
-			name = "BluePrintUITests";
+			name = BluePrintUITests;
 			packageProductDependencies = (
 			);
-			productName = "BluePrintUITests";
+			productName = BluePrintUITests;
 			productReference = BABAAA912F8CBDB0006E359E /* BluePrintUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -395,6 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BVP2766QN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BluePrint;
@@ -408,7 +409,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.uts.edu.BluePrint";
+				PRODUCT_BUNDLE_IDENTIFIER = au.uts.edu.BluePrint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -427,6 +428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BVP2766QN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BluePrint;
@@ -440,7 +442,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.uts.edu.BluePrint";
+				PRODUCT_BUNDLE_IDENTIFIER = au.uts.edu.BluePrint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -461,7 +463,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.uts.edu.BluePrint.Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = au.uts.edu.BluePrint.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -482,7 +484,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.uts.edu.BluePrint.Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = au.uts.edu.BluePrint.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -501,7 +503,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.uts.edu.BluePrint.UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = au.uts.edu.BluePrint.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -509,7 +511,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "BluePrint";
+				TEST_TARGET_NAME = BluePrint;
 			};
 			name = Debug;
 		};
@@ -520,7 +522,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.uts.edu.BluePrint.UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = au.uts.edu.BluePrint.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -528,7 +530,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "BluePrint";
+				TEST_TARGET_NAME = BluePrint;
 			};
 			name = Release;
 		};

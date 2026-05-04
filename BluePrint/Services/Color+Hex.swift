@@ -18,9 +18,9 @@ extension Color {
         }
         self.init(
             .sRGB,
-            red:   Double(r) / 255,
+            red: Double(r) / 255,
             green: Double(g) / 255,
-            blue:  Double(b) / 255,
+            blue: Double(b) / 255,
             opacity: Double(a) / 255
         )
     }

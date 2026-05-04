@@ -248,49 +248,49 @@ final class WeeklyTaskItem {
 // MARK: - Enums
 
 enum LifeAreaStatus: String, Codable {
-    case onTrack    = "onTrack"
-    case drifting   = "drifting"
+    case onTrack = "onTrack"
+    case drifting = "drifting"
     case notStarted = "notStarted"
 
     var displayName: String {
         switch self {
-        case .onTrack:    return "Growing"
-        case .drifting:   return "Needs attention"
+        case .onTrack: return "Growing"
+        case .drifting: return "Needs attention"
         case .notStarted: return "Not started"
         }
     }
 }
 
 enum TaskBlockerType: String, Codable, CaseIterable {
-    case mindset  = "mindset"
-    case skill    = "skill"
+    case mindset = "mindset"
+    case skill = "skill"
     case resource = "resource"
-    case habit    = "habit"
+    case habit = "habit"
 
     var label: String {
         switch self {
-        case .mindset:  return "Mindset"
-        case .skill:    return "Skill"
+        case .mindset: return "Mindset"
+        case .skill: return "Skill"
         case .resource: return "Resource"
-        case .habit:    return "Habit"
+        case .habit: return "Habit"
         }
     }
 
     var color: Color {
         switch self {
-        case .mindset:  return Color(hex: "#EEEDFE")
-        case .skill:    return Color(hex: "#E1F5EE")
+        case .mindset: return Color(hex: "#EEEDFE")
+        case .skill: return Color(hex: "#E1F5EE")
         case .resource: return Color(hex: "#FAEEDA")
-        case .habit:    return Color(hex: "#F1EFE8")
+        case .habit: return Color(hex: "#F1EFE8")
         }
     }
 
     var textColor: Color {
         switch self {
-        case .mindset:  return Color(hex: "#3C3489")
-        case .skill:    return Color(hex: "#085041")
+        case .mindset: return Color(hex: "#3C3489")
+        case .skill: return Color(hex: "#085041")
         case .resource: return Color(hex: "#633806")
-        case .habit:    return Color(hex: "#5F5E5A")
+        case .habit: return Color(hex: "#5F5E5A")
         }
     }
 }

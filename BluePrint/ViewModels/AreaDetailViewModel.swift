@@ -146,20 +146,20 @@ enum BlockerType: String {
 
     var label: String {
         switch self {
-        case .money:    return "Money"
-        case .time:     return "Time"
+        case .money: return "Money"
+        case .time: return "Time"
         case .decision: return "Decision"
         case .mindset:  return "Mindset"
-        case .skill:    return "Skill"
+        case .skill: return "Skill"
         case .resource: return "Resource"
-        case .habit:    return "Habit"
+        case .habit: return "Habit"
         }
     }
 
     var color: Color {
         switch self {
         case .money, .resource: return Color(hex: "#FAEEDA")
-        case .time, .skill:     return Color(hex: "#E1F5EE")
+        case .time, .skill: return Color(hex: "#E1F5EE")
         case .decision, .mindset, .habit: return Color(hex: "#EEEDFE")
         }
     }
@@ -167,7 +167,7 @@ enum BlockerType: String {
     var textColor: Color {
         switch self {
         case .money, .resource: return Color(hex: "#633806")
-        case .time, .skill:     return Color(hex: "#085041")
+        case .time, .skill: return Color(hex: "#085041")
         case .decision, .mindset, .habit: return Color(hex: "#3C3489")
         }
     }
