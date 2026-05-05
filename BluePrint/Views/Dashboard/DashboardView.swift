@@ -7,7 +7,7 @@ struct DashboardView: View {
     @State private var showEditCanvas    = false
     @State private var showCheckIn      = false
 
-    @State private var showVisionBoard  = false
+    @State private var showVisionBoard   = false
     @State private var showClaudeCheckIn = false
 
     var body: some View {
@@ -90,13 +90,13 @@ struct DashboardView: View {
                         Spacer()
                     }
                     .padding(.horizontal, 20)
-                    .padding(.bottom, 100)  // extra room for the FAB
+                    .padding(.bottom, 120)  // extra room for the FAB
                 }
             }
             .background(Color(.systemGroupedBackground))
             .navigationBarHidden(true)
-            .navigationDestination(isPresented: $showEditCanvas) { EditCanvasView(modelContext: modelContext) }
-.navigationDestination(isPresented: $showVisionBoard) { VisionBoardView() }
+            .navigationDestination(isPresented: $showEditCanvas)   { EditCanvasView(modelContext: modelContext) }
+            .navigationDestination(isPresented: $showVisionBoard)   { VisionBoardView() }
             .sheet(isPresented: $showCheckIn) { MonthlyCheckInView(modelContext: modelContext) }
             .sheet(isPresented: $showClaudeCheckIn) {
                 ClaudeCheckInView(modelContext: modelContext)

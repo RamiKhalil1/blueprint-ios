@@ -58,7 +58,6 @@ struct AreaDetailView: View {
                 }
 
                 // Current reality
-                // Current reality
                 DetailCard(title: "Where you are now") {
                     if vm.area.currentReality.isEmpty {
                         HStack(spacing: 8) {
@@ -148,17 +147,16 @@ struct AreaDetailView: View {
                         }
                         .padding(.vertical, 8)
                     } else if vm.tasks.isEmpty {
-                        HStack(spacing: 10) {
-                            ProgressView().scaleEffect(0.85)
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("Loading your tasks...")
-                                    .font(BPFont.body(13, weight: .medium))
-                                Text("These were generated during onboarding")
-                                    .font(BPFont.caption)
-                                    .foregroundColor(.secondary)
-                            }
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("No tasks yet")
+                                .font(BPFont.body(13, weight: .medium))
+                                .foregroundColor(.primary)
+                            Text("Tasks are generated when your Blueprint is built. Try regenerating your areas in settings.")
+                                .font(BPFont.caption)
+                                .foregroundColor(.secondary)
+                                .lineSpacing(2)
                         }
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 8)
                     } else {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("\(vm.completedTaskCount) of \(vm.totalTaskCount) completed")

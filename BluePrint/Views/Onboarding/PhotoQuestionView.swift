@@ -101,6 +101,15 @@ struct PhotoQuestionView: View {
                                     .foregroundColor(Color(hex: "#FAEEDA"))
                                     .cornerRadius(12)
                             }
+
+                            Button {
+                                vm.skipQuestions()
+                            } label: {
+                                Text("Skip this photo")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.secondary)
+                                    .frame(maxWidth: .infinity)
+                            }
                         }
                         Spacer().frame(height: 40)
                     }

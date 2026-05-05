@@ -11,6 +11,7 @@ struct GeneratingCanvasView: View {
     @ObservedObject var vm: OnboardingViewModel
     @State private var dotCount = 0
     @State private var pulseScale = 1.0
+    @State private var dotTimer: Timer? = nil
 
     var body: some View {
         ZStack {
@@ -88,9 +89,13 @@ struct GeneratingCanvasView: View {
         }
         .onAppear {
             pulseScale = 1.15
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+            dotTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
                 dotCount += 1
             }
+        }
+        .onDisappear {
+            dotTimer?.invalidate()
+            dotTimer = nil
         }
     }
 }

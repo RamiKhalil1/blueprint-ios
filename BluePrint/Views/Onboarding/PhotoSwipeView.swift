@@ -225,10 +225,9 @@ struct PhotoCard: View {
             if let uiImage = UIImage(named: photo.assetName) {
                 Image(uiImage: uiImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
                     .frame(maxWidth: .infinity)
                     .frame(height: 430)
-                    .background(Color.black)
                     .clipped()
             } else {
                 ZStack {

@@ -349,6 +349,13 @@ final class OnboardingViewModel: ObservableObject {
         guard let canvas else { return }
         isGenerating = true
 
+        // Clear any areas that may exist from a previous partial run
+        for area in canvas.lifeAreas {
+            modelContext.delete(area)
+        }
+        canvas.lifeAreas = []
+        try? modelContext.save()
+
         let messages = [
             "Learning about you...",
             "Identifying your life areas...",
