@@ -90,6 +90,9 @@ final class LifeArea {
     var createdAt: Date
     var updatedAt: Date
 
+    // How this area was generated (shown in review screen for transparency)
+    var generationRationale: String
+
     // AI cache
     var aiActionTitles: [String]
     var actionsMonthKey: String
@@ -129,6 +132,7 @@ final class LifeArea {
         self.status = LifeAreaStatus.notStarted.rawValue
         self.createdAt = .now
         self.updatedAt = .now
+        self.generationRationale = ""
         self.aiActionTitles = []
         self.actionsMonthKey = ""
         self.aiBlockerTypes = []

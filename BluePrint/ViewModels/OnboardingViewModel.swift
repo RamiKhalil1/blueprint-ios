@@ -63,6 +63,9 @@ final class OnboardingViewModel: ObservableObject {
     @Published var generatedAreas: [GeneratedLifeArea] = []
     @Published var isGenerating = false
 
+    // MARK: - Per-area regeneration
+    @Published var regeneratingAreaId: UUID? = nil
+
     // MARK: - Error
     @Published var errorMessage: String? = nil
 
@@ -286,6 +289,59 @@ final class OnboardingViewModel: ObservableObject {
         Task { await generateCanvas() }
     }
 
+    /// Regenerates a single life area in-place, keeping the other 4 intact.
+    func regenerateArea(_ area: LifeArea) {
+        guard let canvas else { return }
+        let existingNames = canvas.lifeAreas
+            .filter { $0.id != area.id }
+            .map { $0.name }
+
+        regeneratingAreaId = area.id
+
+        Task {
+            do {
+                let newArea = try await AIService.shared.regenerateSingleLifeArea(
+                    interactions: canvas.photoInteractions,
+                    answers: canvas.onboardingAnswers,
+                    existingAreaNames: existingNames
+                )
+
+                // Update fields in place
+                area.name            = newArea.name
+                area.emoji           = newArea.emoji
+                area.areaDescription = newArea.description
+                area.vision          = newArea.vision
+                area.currentReality  = newArea.currentReality
+                area.generationRationale = newArea.rationale ?? ""
+
+                // Replace tasks
+                for task in area.tasks { modelContext.delete(task) }
+                area.tasks = []
+
+                let tasks = try await AIService.shared.generateAreaTasks(
+                    areaName: newArea.name,
+                    vision: newArea.vision,
+                    currentReality: newArea.currentReality,
+                    emoji: newArea.emoji
+                )
+                for task in tasks {
+                    let areaTask = AreaTask(
+                        title: task.title,
+                        note: task.note,
+                        blockerType: TaskBlockerType(rawValue: task.blockerType) ?? .habit,
+                        sortIndex: task.sortIndex
+                    )
+                    area.tasks.append(areaTask)
+                    modelContext.insert(areaTask)
+                }
+                try? modelContext.save()
+            } catch {
+                print("❌ Single area regeneration failed: \(error)")
+            }
+            regeneratingAreaId = nil
+        }
+    }
+
     // MARK: - Generate Canvas
 
     @MainActor
@@ -329,6 +385,7 @@ final class OnboardingViewModel: ObservableObject {
                     currentReality: area.currentReality,
                     priorityRank: index + 1
                 )
+                lifeArea.generationRationale = area.rationale ?? ""
                 canvas.lifeAreas.append(lifeArea)
                 modelContext.insert(lifeArea)
 

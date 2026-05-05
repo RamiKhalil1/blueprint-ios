@@ -74,13 +74,85 @@ final class AIService {
             "emoji": "single relevant emoji",
             "description": "one sentence describing what this area means for them personally",
             "vision": "an inspiring 1-2 sentence vision statement for this area based on what they liked",
-            "currentReality": "an honest 1-2 sentence current reality statement based on their answers"
+            "currentReality": "an honest 1-2 sentence current reality statement based on their answers",
+            "rationale": "1-2 sentences explaining exactly which photos or answers led to this specific area being chosen"
           }
         ]
         """
-        let response = try await call(prompt: prompt, maxTokens: 2000)
+        let response = try await call(prompt: prompt, maxTokens: 2500)
         print("📥 Life areas response: \(response.prefix(200))")
         return try parseLifeAreas(from: response)
+    }
+
+    // MARK: - Regenerate a single life area
+    func regenerateSingleLifeArea(
+        interactions: [PhotoInteraction],
+        answers: [OnboardingAnswer],
+        existingAreaNames: [String]
+    ) async throws -> GeneratedLifeArea {
+        let likedPhotos = interactions.filter { $0.isLiked }
+            .map { "- \($0.photoDescription)" }
+            .joined(separator: "\n")
+
+        let dislikedPhotos = interactions.filter { !$0.isLiked }
+            .map { "- \($0.photoDescription)" }
+            .joined(separator: "\n")
+
+        let qaContext = answers
+            .filter { !$0.answer.isEmpty }
+            .map { "Q: \($0.question)\nA: \($0.answer)" }
+            .joined(separator: "\n\n")
+
+        let existingList = existingAreaNames.map { "- \($0)" }.joined(separator: "\n")
+
+        let prompt = """
+        You are Blueprint, a life design assistant. The user already has these life areas and wants a fresh one to replace one:
+
+        EXISTING AREAS (do NOT duplicate these):
+        \(existingList.isEmpty ? "none" : existingList)
+
+        Photos they LIKED:
+        \(likedPhotos.isEmpty ? "none" : likedPhotos)
+
+        Photos they DISLIKED:
+        \(dislikedPhotos.isEmpty ? "none" : dislikedPhotos)
+
+        Their answers to follow-up questions:
+        \(qaContext.isEmpty ? "none" : qaContext)
+
+        Generate exactly ONE new life area that:
+        - Is meaningfully different from the existing areas above
+        - Still reflects this person's actual desires and values
+        - Has an evocative, personal name (e.g. "Wild Freedom" not just "Travel")
+
+        Respond ONLY with a single JSON object, no array, no markdown:
+        {
+          "name": "area name (2-3 words)",
+          "emoji": "single relevant emoji",
+          "description": "one sentence describing what this area means for them personally",
+          "vision": "an inspiring 1-2 sentence vision statement based on what they liked",
+          "currentReality": "an honest 1-2 sentence current reality statement based on their answers",
+          "rationale": "1-2 sentences explaining exactly which photos or answers led to this specific area"
+        }
+        """
+        let response = try await call(prompt: prompt, maxTokens: 600)
+        print("📥 Single area response: \(response.prefix(300))")
+        // Parse a single object (not an array)
+        guard let data = response.data(using: .utf8) else { throw AIError.parseError }
+        // Try direct object parse
+        if let area = try? JSONDecoder().decode(GeneratedLifeArea.self, from: data) {
+            return area
+        }
+        // Fallback: strip to first {...} block
+        if let start = response.firstIndex(of: "{"),
+           let end = response.lastIndex(of: "}") {
+            let json = String(response[start...end])
+            if let d = json.data(using: .utf8),
+               let area = try? JSONDecoder().decode(GeneratedLifeArea.self, from: d) {
+                return area
+            }
+        }
+        throw AIError.parseError
     }
 
     // MARK: - NEW: Generate 20 tasks for an area
@@ -445,6 +517,7 @@ struct GeneratedLifeArea: Codable {
     let description: String
     let vision: String
     let currentReality: String
+    let rationale: String?   // nil-safe: AI may not always return this field
 }
 
 struct GeneratedTask: Codable {
